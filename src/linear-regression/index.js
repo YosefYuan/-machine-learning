@@ -1,3 +1,4 @@
+import * as tf from '@tensorflow/tfjs';
 import * as tfvis from '@tensorflow/tfjs-vis';
 
 window.onload = () => {
@@ -7,4 +8,7 @@ window.onload = () => {
   tfvis.render.scatterplot(surface, {
     values: xs.map((x, i) => ({ x, y: ys[i] })),
   });
+
+  const model = tf.sequential();
+  model.add(tf.layers.dense({ units: 1, inputShape: [1] }));
 };
